@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cc8ea54a817e045afe9c857019cccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 2771107823790047910}
   hoverBox: {fileID: 7930826198035972393}
 --- !u!61 &3283249998135651819
 BoxCollider2D:
@@ -278,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
