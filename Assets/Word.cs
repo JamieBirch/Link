@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
 {
+    private GameManager _gameManager;
     public TextMeshProUGUI text;
     public Image hoverBox;
     private bool dragging = false;
@@ -13,6 +14,31 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     // private Color contrastColor = Color.white;
 
     private Vector3 offset;
+
+    private void Start()
+    {
+        _gameManager = GameManager.instance;
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log( "hit smth");
+        if (collision.gameObject == _gameManager.cuts)
+        {
+            Debug.Log( "put in cuts?");
+        }
+    }*/
+    
+    /*private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Debug.Log( "hit smth");
+        if (hit.gameObject == _gameManager.cuts)
+        {
+            Debug.Log( "put in cuts?");
+            // Debug.Log(item);
+            // GetComponent<FirstPersonController>().nearbyItem = hit.gameObject;
+        } 
+    }*/
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -31,10 +57,11 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         //TODO drop word to cuts/answer place
         if (canvas == null)
         {
-            canvas = GameManager.instance.canvas;
+            // canvas = GameManager.instance.canvas;
+            canvas = _gameManager.canvas;
         }
 
-        Debug.Log("Dragging");
+        // Debug.Log("Dragging");
         if (dragging == false)
         {
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -49,6 +76,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     {
         Debug.Log("Stop Dragging");
         dragging = false;
+        // if ()
         // hoverBox.enabled = true;
         copy = null;
     }

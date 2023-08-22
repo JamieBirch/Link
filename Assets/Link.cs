@@ -1,24 +1,36 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Link : MonoBehaviour
+public class Link : MonoBehaviour, IPointerClickHandler
 {
-    public TextNode parent;
+    private GameManager _gameManager;
+    
+    public Link parent;
+    
+    public TextMeshProUGUI text;
+    private Color clickedLinkColor = Color.magenta;
     private List<Link> children;
     private int level;
     private TextType type;
     private bool clicked = false;
     public GameObject page;
 
-    public void ClickLink()
+    private void Start()
+    {
+        _gameManager = GameManager.instance;
+    }
+    
+    private void ClickLink()
     {
         clicked = true;
-        OpenPage();
+        text.color = clickedLinkColor;
+        _gameManager.OpenPage(this);
     }
 
-    private void OpenPage()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        //TODO implement
-        Debug.Log("Open page");
+        ClickLink();
     }
 }
