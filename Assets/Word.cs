@@ -1,12 +1,27 @@
-using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class Word : MonoBehaviour
+public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler
 {
-    private Color defaultColor;
+    public Image hoverBox;
+    private bool dragging = false;
 
-    private void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        // Debug.Log("OnMouseEnter");
+        hoverBox.enabled = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        // Debug.Log("OnMouseExit");
+        hoverBox.enabled = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        //TODO
+        Debug.Log("Dragging");
     }
 }
