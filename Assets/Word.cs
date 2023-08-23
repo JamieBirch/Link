@@ -49,7 +49,11 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         {
             _gameManager.cuts.GetComponent<Cutouts>().addToCutoutWords(copy);
         }*/
-        copy.canvasGroup.blocksRaycasts = true;
+        if (!copy.inBlank)
+        {
+            copy.canvasGroup.blocksRaycasts = true;
+        }
+        copy.hoverBox.enabled = false;
         copy = null;
     }
 
@@ -78,6 +82,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
             inCutouts = false;
             inBlank = false;
             copy = this;
+            // copy.hoverBox.enabled = true;
         }
         else
         {
