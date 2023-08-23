@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Cutouts : MonoBehaviour
+public class Cutouts : MonoBehaviour, IDropHandler
 {
     public List<Word> cutoutWords = new List<Word>();
     
@@ -17,7 +18,7 @@ public class Cutouts : MonoBehaviour
         }*/
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("has collided");
 
@@ -39,6 +40,20 @@ public class Cutouts : MonoBehaviour
         {
             word.inCutouts = false;
             word.Default();
+        }
+    }*/
+    
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Dropped in blank");
+        if (eventData.pointerDrag != null)
+        { 
+            
+            Word word = eventData.pointerDrag.GetComponent<Word>().copy;
+            word.Contrast();
+            addToCutoutWords(word);
+            word.GetComponent<Word>().inCutouts = true;
+            // word.transform.position = transform.position;
         }
     }
 
