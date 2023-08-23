@@ -36,6 +36,7 @@ public class Blank : MonoBehaviour, IDropHandler
             word.transform.position = transform.position;
             word.Contrast();
             word.inBlank = true;
+            word.transform.SetParent(transform);
         }
     }
 }

@@ -5,10 +5,15 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Canvas canvas;
     public GameObject cutouts;
-    public GameObject answer;
-    
+    public GameObject[] tasks;
+    public int currentTaskIndex = 0;
+    public GameObject currentTask;
+    public Answer currentAnswer;
+
     public Link homePage;
     private Link currentLink;
+
+    private bool _gameOver = false;
 
     void Awake()
     {
@@ -21,6 +26,34 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentLink = homePage;
+    }
+
+    void Update()
+    {
+        if (!_gameOver)
+        {
+            if (currentAnswer.allCorrect)
+            {
+                if (currentTaskIndex < tasks.Length - 1)
+                {
+                    giveNextTask();
+                }
+                else
+                {
+                    _gameOver = true;
+                    Debug.Log("You won");
+                }  
+            } 
+        }
+    }
+
+    private void giveNextTask()
+    {
+        currentTaskIndex++;
+        currentTask.SetActive(false);
+        currentTask = tasks[currentTaskIndex];
+        currentTask.SetActive(true);
+        currentAnswer = currentTask.GetComponent<Task>().GetAnswer();
     }
 
     public void OpenPage(Link link)
