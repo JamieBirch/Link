@@ -23,10 +23,14 @@ public class Blank : MonoBehaviour, IDropHandler
     {
         Debug.Log("Dropped in blank");
         if (eventData.pointerDrag != null)
-        { 
-            
+        {
+            if (word != null && word != eventData.pointerDrag.GetComponent<Word>().copy)
+            {
+                Destroy(word.gameObject);
+            }
             word = eventData.pointerDrag.GetComponent<Word>().copy;
             word.transform.position = transform.position;
+            word.inBlank = true;
         }
     }
 }
