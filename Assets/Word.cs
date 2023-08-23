@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler
+public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     private GameManager _gameManager;
     public TextMeshProUGUI text;
     public Image hoverBox;
+    public CanvasGroup canvasGroup;
     private bool dragging = false;
     private Word copy;
     private Canvas canvas;
@@ -57,31 +58,13 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 
     public void OnDrag(PointerEventData eventData)
     {
-        //TODO drop word to cuts/answer place
-        if (canvas == null)
-        {
-            // canvas = GameManager.instance.canvas;
-            canvas = _gameManager.canvas;
-        }
-
-        // Debug.Log("Dragging");
-        if (dragging == false)
-        {
-            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            dragging = true;
-            copy = Instantiate(this, canvas.transform);
-            Physics2D.IgnoreCollision(copy.GetComponent<Collider2D>(), _gameManager.cuts.GetComponent<Collider2D>(), false);
-            
-            // copy.GetComponent<Collider2D>().isTrigger = true;
-            // copy.text.color = contrastColor;
-        }
         copy.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Stop Dragging");
-        dragging = false;
+        // dragging = false;
         // copy.GetComponent<Collider2D>().isTrigger = false;
         // if ()
         // hoverBox.enabled = true;
@@ -90,6 +73,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         {
             _gameManager.cuts.GetComponent<Cutouts>().addToCutoutWords(copy);
         }
+        copy.canvasGroup.blocksRaycasts = true;
         copy = null;
     }
 
@@ -101,5 +85,30 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     public void Default()
     {
         text.color = defaultTextColor;
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("Start Dragging");
+        if (canvas == null)
+        {
+            // canvas = GameManager.instance.canvas;
+            canvas = _gameManager.canvas;
+        }
+
+        // Debug.Log("Dragging");
+        // if (dragging == false)
+        // {
+            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // dragging = true;
+            copy = Instantiate(this, canvas.transform);
+            // Physics2D.IgnoreCollision(copy.GetComponent<Collider2D>(), _gameManager.cuts.GetComponent<Collider2D>(), false);
+            
+            // copy.GetComponent<Collider2D>().isTrigger = true;
+            // copy.text.color = contrastColor;
+        // }
+        
+        copy.canvasGroup.blocksRaycasts = false;
+        //TODO
     }
 }

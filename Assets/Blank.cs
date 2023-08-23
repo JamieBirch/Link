@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Blank : MonoBehaviour
+public class Blank : MonoBehaviour, IDropHandler
 {
     public Word word;
     public string targetText;
@@ -17,4 +18,10 @@ public class Blank : MonoBehaviour
         }
     }
 
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Dropped in blank");
+        //TODO
+    }
 }

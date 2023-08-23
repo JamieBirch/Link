@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 4826698500139580358}
   - component: {fileID: 7930826198035972393}
   - component: {fileID: 2074584568565228445}
+  - component: {fileID: 3625875660594611042}
   m_Layer: 0
   m_Name: word
   m_TagString: Untagged
@@ -233,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2771107823790047910}
   hoverBox: {fileID: 7930826198035972393}
+  canvasGroup: {fileID: 3625875660594611042}
+  inCutouts: 0
 --- !u!61 &3283249998135651819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -318,3 +321,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 10
+--- !u!225 &3625875660594611042
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2771107824396316448}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

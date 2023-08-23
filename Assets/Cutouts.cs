@@ -27,7 +27,7 @@ public class Cutouts : MonoBehaviour
             word.Contrast();
         }
         
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+        // Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
     }
     
     private void OnCollisionExit2D(Collision2D collision)
