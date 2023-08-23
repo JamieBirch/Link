@@ -10,7 +10,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     public Image hoverBox;
     public CanvasGroup canvasGroup;
     private bool dragging = false;
-    private Word copy;
+    public Word copy;
     private Canvas canvas;
     private Color contrastTextColor = Color.white;
     private Color defaultTextColor;
@@ -58,7 +58,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 
     public void OnDrag(PointerEventData eventData)
     {
-        copy.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+        copy.GetComponent<RectTransform>().anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -101,7 +101,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         // {
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // dragging = true;
-            copy = Instantiate(this, canvas.transform);
+            copy = Instantiate(this, transform.position, Quaternion.identity, canvas.transform);
             // Physics2D.IgnoreCollision(copy.GetComponent<Collider2D>(), _gameManager.cuts.GetComponent<Collider2D>(), false);
             
             // copy.GetComponent<Collider2D>().isTrigger = true;

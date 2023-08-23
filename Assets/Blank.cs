@@ -22,6 +22,11 @@ public class Blank : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Dropped in blank");
-        //TODO
+        if (eventData.pointerDrag != null)
+        { 
+            
+            word = eventData.pointerDrag.GetComponent<Word>().copy;
+            word.transform.position = transform.position;
+        }
     }
 }
