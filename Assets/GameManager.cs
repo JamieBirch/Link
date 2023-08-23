@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Canvas canvas;
-    public GameObject cuts;
+    public GameObject cutouts;
     public GameObject answer;
     
     public Link homePage;

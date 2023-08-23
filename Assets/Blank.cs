@@ -17,6 +17,11 @@ public class Blank : MonoBehaviour, IDropHandler
             return false;
         }
     }
+    
+    public bool isSet()
+    {
+        return word != null;
+    }
 
 
     public void OnDrop(PointerEventData eventData)

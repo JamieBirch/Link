@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1445421891}
-  cuts: {fileID: 1955110986}
+  cutouts: {fileID: 0}
   answer: {fileID: 0}
   homePage: {fileID: 1577415207}
 --- !u!4 &327877586
@@ -4779,6 +4779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8035540739738408549, guid: 19bfdf81885927f41b8624287a2b1aaa, type: 3}
+      propertyPath: targetText
+      value: 2nd
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19bfdf81885927f41b8624287a2b1aaa, type: 3}
 --- !u!1001 &1417337505
@@ -7165,7 +7169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6116c163b0c6aa542b01097ea6f24496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutoutWords: []
 --- !u!1 &1997417041
 GameObject:
   m_ObjectHideFlags: 0
@@ -8392,6 +8395,10 @@ PrefabInstance:
     - target: {fileID: 1472940395214706335, guid: 0d252b99e3b383e42a451f733330a9c4, type: 3}
       propertyPath: m_Name
       value: question_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610288755443234166, guid: 0d252b99e3b383e42a451f733330a9c4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3713954346227185404, guid: 0d252b99e3b383e42a451f733330a9c4, type: 3}
       propertyPath: m_Pivot.x
