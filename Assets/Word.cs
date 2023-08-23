@@ -11,13 +11,16 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     private bool dragging = false;
     private Word copy;
     private Canvas canvas;
-    // private Color contrastColor = Color.white;
+    private Color contrastTextColor = Color.white;
+    private Color defaultTextColor;
 
     private Vector3 offset;
+    public bool inCutouts;
 
     private void Start()
     {
         _gameManager = GameManager.instance;
+        defaultTextColor = text.color;
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
@@ -67,6 +70,9 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dragging = true;
             copy = Instantiate(this, canvas.transform);
+            Physics2D.IgnoreCollision(copy.GetComponent<Collider2D>(), _gameManager.cuts.GetComponent<Collider2D>(), false);
+            
+            // copy.GetComponent<Collider2D>().isTrigger = true;
             // copy.text.color = contrastColor;
         }
         copy.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
@@ -76,8 +82,24 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     {
         Debug.Log("Stop Dragging");
         dragging = false;
+        // copy.GetComponent<Collider2D>().isTrigger = false;
         // if ()
         // hoverBox.enabled = true;
+
+        if (inCutouts)
+        {
+            _gameManager.cuts.GetComponent<Cutouts>().addToCutoutWords(copy);
+        }
         copy = null;
+    }
+
+    public void Contrast()
+    {
+        text.color = contrastTextColor;
+    }
+    
+    public void Default()
+    {
+        text.color = defaultTextColor;
     }
 }
