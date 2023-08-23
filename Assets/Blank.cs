@@ -6,7 +6,7 @@ public class Blank : MonoBehaviour, IDropHandler
     public Word word;
     public string targetText;
 
-    public bool setRight()
+    public bool SetRight()
     {
         if (word != null)
         {
@@ -18,11 +18,10 @@ public class Blank : MonoBehaviour, IDropHandler
         }
     }
     
-    public bool isSet()
+    public bool IsSet()
     {
         return word != null;
     }
-
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -35,6 +34,7 @@ public class Blank : MonoBehaviour, IDropHandler
             }
             word = eventData.pointerDrag.GetComponent<Word>().copy;
             word.transform.position = transform.position;
+            word.Contrast();
             word.inBlank = true;
         }
     }

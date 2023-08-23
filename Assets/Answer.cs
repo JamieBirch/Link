@@ -20,7 +20,7 @@ public class Answer : MonoBehaviour
         bool result = true;
         foreach (var blank in blanks)
         {
-            if (!blank.isSet())
+            if (!blank.IsSet())
             {
                 result = false;
                 break;
@@ -34,7 +34,7 @@ public class Answer : MonoBehaviour
         bool result = true;
         foreach (var blank in blanks)
         {
-            if (!blank.setRight())
+            if (!blank.SetRight())
             {
                 result = false;
                 break;
