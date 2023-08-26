@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip click;
     public AudioClip correct;
     public AudioClip wrong;
+    public AudioClip win;
     
 
     void Awake()
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    soundPlayer.playSound(win);
                     _gameOver = true;
                     Debug.Log("You won");
                 }  

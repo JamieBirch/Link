@@ -234,6 +234,9 @@ MonoBehaviour:
   text: {fileID: 2771107823790047910}
   canvasGroup: {fileID: 3625875660594611042}
   copy: {fileID: 0}
+  soundPlayer: {fileID: 0}
+  pick: {fileID: 8300000, guid: 64e17e63270b3d84a9c9fb86f1255d42, type: 3}
+  drop: {fileID: 8300000, guid: cfe7fa0553546a34089fa305c95d205e, type: 3}
   inCutouts: 0
   inBlank: 0
 --- !u!61 &3283249998135651819

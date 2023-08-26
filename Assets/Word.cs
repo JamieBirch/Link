@@ -14,7 +14,10 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
     private Canvas canvas;
     private Color contrastTextColor = Color.white;
     private Color defaultTextColor;
-    // public SoundEffectsPlayer soundPlayer;
+    public SoundEffectsPlayer soundPlayer;
+    
+    public AudioClip pick;
+    public AudioClip drop;
 
     // private Vector3 offset;
     public bool inCutouts;
@@ -23,7 +26,7 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
     private void Start()
     {
         _gameManager = GameManager.instance;
-        // soundPlayer = _gameManager.soundPlayer;
+        soundPlayer = _gameManager.soundPlayer;
         defaultTextColor = text.color;
         canvas = _gameManager.canvas;
     }
@@ -45,6 +48,7 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        soundPlayer.playSound(drop);
         Debug.Log("Stop Dragging");
 
         /*if (inCutouts)
@@ -78,6 +82,8 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        soundPlayer.playSound(pick);
+        
         // Debug.Log("Start Dragging");
         /*if (canvas == null)
         {
