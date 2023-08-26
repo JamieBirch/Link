@@ -49,7 +49,6 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        soundPlayer.playSound(drop);
         Debug.Log("Stop Dragging");
 
         /*if (inCutouts)
@@ -64,6 +63,10 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
         if (!copy.inBlank && !copy.inCutouts)
         {
             Destroy(copy.gameObject);
+        }
+        else
+        {
+            soundPlayer.playSound(drop);
         }
         // copy.hoverBox.enabled = false;
         copy = null;
