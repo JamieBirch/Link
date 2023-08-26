@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 4da050ffe713e4d4cb4719d7e2b49bff
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Courier Prime
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b70161aa86e6e03458765043d68e01cf, type: 3}
+  - {fileID: 12800000, guid: b83a987a1a4071e499f5372744cf97d2, type: 3}
+  - {fileID: 12800000, guid: f80dc50c7cb3777448924a34c766a7be, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

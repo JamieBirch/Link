@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Atop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27a992d9de76afb409cd578fc35823f7, type: 2}
+  m_sharedMaterial: {fileID: -6912989079046269900, guid: 27a992d9de76afb409cd578fc35823f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -234,7 +234,9 @@ MonoBehaviour:
   text: {fileID: 2771107823790047910}
   hoverBox: {fileID: 7930826198035972393}
   canvasGroup: {fileID: 3625875660594611042}
+  copy: {fileID: 0}
   inCutouts: 0
+  inBlank: 0
 --- !u!61 &3283249998135651819
 BoxCollider2D:
   m_ObjectHideFlags: 0

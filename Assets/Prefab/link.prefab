@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b960e399f26c0aa41bf148e813e1bf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  text: {fileID: 0}
   page: {fileID: 0}
 --- !u!1 &8277995534522101174
 GameObject:
@@ -161,8 +163,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: victim's
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27a992d9de76afb409cd578fc35823f7, type: 2}
+  m_sharedMaterial: {fileID: -6912989079046269900, guid: 27a992d9de76afb409cd578fc35823f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

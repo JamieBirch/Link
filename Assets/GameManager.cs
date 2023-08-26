@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Open page");
         currentLink.page.SetActive(false);
         link.page.SetActive(true);
-        link.parent = currentLink;
+        // link.parent = currentLink;
         SetCurrentLink(link);
     }
     
