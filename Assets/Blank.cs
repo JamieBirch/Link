@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,7 +11,9 @@ public class Blank : MonoBehaviour, IDropHandler
     {
         if (word != null)
         {
-            return word.text.text == targetText;
+            return string.Equals(word.text.text, targetText, StringComparison.OrdinalIgnoreCase);
+            
+            // return word.text.text == targetText;
         }
         else
         {
