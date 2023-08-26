@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Answer currentAnswer;
 
     public Link homePage;
+    public Link winPage;
     private Link currentLink;
 
     private bool _gameOver = false;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
                 {
                     soundPlayer.playSound(win);
                     _gameOver = true;
+                    OpenWinPage();
                     Debug.Log("You won");
                 }  
             } 
@@ -69,7 +71,10 @@ public class GameManager : MonoBehaviour
 
     public void OpenPage(Link link)
     {
-        soundPlayer.playSound(click);
+        if (link != winPage)
+        {
+            soundPlayer.playSound(click);
+        }
         Debug.Log("Open page");
         currentLink.page.SetActive(false);
         link.page.SetActive(true);
@@ -85,6 +90,11 @@ public class GameManager : MonoBehaviour
     public void OpenHomePage()
     {
         OpenPage(homePage);
+    }
+    
+    public void OpenWinPage()
+    {
+        OpenPage(winPage);
     }
 
     public void SetCurrentLink(Link link)
