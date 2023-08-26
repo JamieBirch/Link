@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     private Link currentLink;
 
     private bool _gameOver = false;
+    
+    public SoundEffectsPlayer soundPlayer;
+    public AudioClip click;
+    public AudioClip correct;
+    public AudioClip wrong;
+    
 
     void Awake()
     {
@@ -51,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void giveNextTask()
     {
+        soundPlayer.playSound(correct);
         currentTaskIndex++;
         currentTask.SetActive(false);
         currentTask = tasks[currentTaskIndex];
@@ -60,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenPage(Link link)
     {
+        soundPlayer.playSound(click);
         Debug.Log("Open page");
         currentLink.page.SetActive(false);
         link.page.SetActive(true);
