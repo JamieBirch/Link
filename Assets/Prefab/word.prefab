@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2771107823790047910}
-  hoverBox: {fileID: 7930826198035972393}
   canvasGroup: {fileID: 3625875660594611042}
   copy: {fileID: 0}
   inCutouts: 0

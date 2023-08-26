@@ -3,17 +3,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*/ IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     private GameManager _gameManager;
     public TextMeshProUGUI text;
-    public Image hoverBox;
+    // public Image hoverBox;
     public CanvasGroup canvasGroup;
     private bool dragging = false;
     public Word copy;
     private Canvas canvas;
     private Color contrastTextColor = Color.white;
     private Color defaultTextColor;
+    // public SoundEffectsPlayer soundPlayer;
 
     // private Vector3 offset;
     public bool inCutouts;
@@ -22,11 +23,12 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     private void Start()
     {
         _gameManager = GameManager.instance;
+        // soundPlayer = _gameManager.soundPlayer;
         defaultTextColor = text.color;
         canvas = _gameManager.canvas;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    /*public void OnPointerEnter(PointerEventData eventData)
     {
         hoverBox.enabled = true;
     }
@@ -34,7 +36,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
     public void OnPointerExit(PointerEventData eventData)
     {
         hoverBox.enabled = false;
-    }
+    }*/
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -43,7 +45,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Debug.Log("Stop Dragging");
+        Debug.Log("Stop Dragging");
 
         /*if (inCutouts)
         {
@@ -53,7 +55,14 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
         {
             copy.canvasGroup.blocksRaycasts = true;
         }
-        copy.hoverBox.enabled = false;
+
+        if (!copy.inBlank && !copy.inCutouts)
+        {
+            //TODO fix
+            copy.enabled = false;
+            // Destroy(copy);
+        }
+        // copy.hoverBox.enabled = false;
         copy = null;
     }
 
