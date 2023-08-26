@@ -34,8 +34,10 @@ public class GameManager : MonoBehaviour
         {
             if (currentAnswer.allCorrect)
             {
+                Debug.Log("All correct");
                 if (currentTaskIndex < tasks.Length - 1)
                 {
+                    Debug.Log("Giving next");
                     giveNextTask();
                 }
                 else

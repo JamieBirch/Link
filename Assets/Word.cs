@@ -43,7 +43,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Stop Dragging");
+        // Debug.Log("Stop Dragging");
 
         /*if (inCutouts)
         {
@@ -69,7 +69,7 @@ public class Word : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ID
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Start Dragging");
+        // Debug.Log("Start Dragging");
         /*if (canvas == null)
         {
             canvas = _gameManager.canvas;

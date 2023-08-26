@@ -25,7 +25,10 @@ public class Link : MonoBehaviour, IPointerClickHandler
     private void ClickLink()
     {
         clicked = true;
-        text.color = clickedLinkColor;
+        if (text != null)
+        {
+            text.color = clickedLinkColor;
+        }
         _gameManager.OpenPage(this);
     }
 
