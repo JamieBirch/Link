@@ -63,9 +63,7 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
 
         if (!copy.inBlank && !copy.inCutouts)
         {
-            //TODO fix
-            copy.enabled = false;
-            // Destroy(copy);
+            Destroy(copy.gameObject);
         }
         // copy.hoverBox.enabled = false;
         copy = null;
