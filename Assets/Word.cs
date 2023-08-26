@@ -13,6 +13,7 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
     public Word copy;
     private Canvas canvas;
     private Color contrastTextColor = Color.white;
+    private Color accentTextColor = Color.magenta;
     private Color defaultTextColor;
     public SoundEffectsPlayer soundPlayer;
     
@@ -75,6 +76,11 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
         text.color = contrastTextColor;
     }
     
+    public void Accent()
+    {
+        text.color = accentTextColor;
+    }
+    
     public void Default()
     {
         text.color = defaultTextColor;
@@ -103,6 +109,8 @@ public class Word : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*
         {
             copy = Instantiate(this, transform.position, Quaternion.identity, canvas.transform);
         }
+
+        copy.Accent();
         
         copy.canvasGroup.blocksRaycasts = false;
     }
